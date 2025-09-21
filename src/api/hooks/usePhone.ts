@@ -12,7 +12,8 @@ export const usePhone = () => {
     });
 
   const createPhone = useMutation<Phone, Error, Phone>({
-    mutationFn: (body: Phone) => api.post("phone", body).then((res) => res.data),
+    mutationFn: (body: Phone) =>
+      api.post("phone", body).then((res) => res.data),
     onSuccess: () => {
       client.invalidateQueries({ queryKey: ["phoneKey"] });
     },
